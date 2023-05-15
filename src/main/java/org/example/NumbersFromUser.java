@@ -14,6 +14,11 @@ public class NumbersFromUser {
     }
 
     public void setNumberFromUser(int numberFromUser) {
-        this.numberFromUser = numberFromUser;
+        if (numberFromUser<=0 || numberFromUser>=100) {
+            System.out.println("Given number is out of scope");
+        }
+        else {
+            this.numberFromUser = numberFromUser;
+        }
     }
 }

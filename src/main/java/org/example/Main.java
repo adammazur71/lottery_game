@@ -12,8 +12,9 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             System.out.println("Write a number bigger than 0 and smaller than 100: ");
             numbersFromUser.setNumberFromUser(scanner.nextInt());
-            numbersFromUser.setOfNumbersFromUser.add(numbersFromUser.getNumberFromUser());
-
+            if (numbersFromUser.getNumberFromUser()!=0) {
+                numbersFromUser.setOfNumbersFromUser.add(numbersFromUser.getNumberFromUser());
+            }
             if (numbersFromUser.setOfNumbersFromUser.size() != i+1) {
                 System.out.println("Given Number must be unique! Try again!");
                 i--;
