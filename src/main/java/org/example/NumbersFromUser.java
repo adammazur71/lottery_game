@@ -12,10 +12,10 @@ public class NumbersFromUser {
 
     public void getNumbersFromUser() {
         Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
 
             try {
-                System.out.println("Write a number bigger than 0 and smaller than 100. Number "+(i+1)+" of 10 is: ");
+                System.out.println("Write a number bigger than 0 and smaller than 100. Number " + (i + 1) + " of 6 is: ");
                 numberFromUser = scanner.nextInt();
 
             } catch (InputMismatchException exception) {
@@ -40,17 +40,7 @@ public class NumbersFromUser {
                 i--;
             }
         }
+        scanner.close();
     }
 
-//    public int getNumberFromUser() {
-//        return numberFromUser;
-//    }
-//
-//    public void setNumberFromUser(int numberFromUser) {
-//        if (numberFromUser <= 0 || numberFromUser >= 100) {
-//            System.out.println("Given number is out of scope");
-//        } else {
-//            this.numberFromUser = numberFromUser;
-//        }
-//    }
 }
