@@ -12,12 +12,9 @@ public class Drawing {
             consecutiveNumbers.add(i);
         }
     }
-    public int[] randomizeNumbers(){
+    public void randomizeNumbers(){
         Collections.shuffle(consecutiveNumbers);
-        int[] randomizedNumbers = new int[6];
-        for (int i = 0; i < 6; i++) {
-            randomizedNumbers[i] = consecutiveNumbers.get(i);
-        }
-        return randomizedNumbers;
+        List<Integer> randomizedNumbers = new ArrayList<>(consecutiveNumbers);
+
     }
 }

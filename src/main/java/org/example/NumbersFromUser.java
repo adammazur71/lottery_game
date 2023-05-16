@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class NumbersFromUser {
 
@@ -41,6 +38,10 @@ public class NumbersFromUser {
             }
         }
         scanner.close();
+        List<Integer> listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
     }
 
+
 }
+
+
