@@ -13,13 +13,18 @@ public class NumbersFromUser {
     public void getNumbersFromUser() {
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 10; i++) {
-            System.out.println("Write a number bigger than 0 and smaller than 100: ");
+
             try {
+                System.out.println("Write a number bigger than 0 and smaller than 100. Number "+(i+1)+" of 10 is: ");
                 numberFromUser = scanner.nextInt();
+
             } catch (InputMismatchException exception) {
-                System.out.println("Sorry, but only integers are allowed here!");
-                return;
+                System.out.println("Sorry, but only integers are allowed here! Try again!");
+                i--;
+                scanner.nextLine();
+                continue;
             }
+
             if (numberFromUser <= 0 || numberFromUser >= 100) {
                 System.out.println("Given number is out of scope! Try again!");
                 i--;
