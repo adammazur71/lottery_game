@@ -5,15 +5,17 @@ import java.util.Collections;
 import java.util.List;
 
 public class Drawing {
-    List<Integer> consecutiveNumbers = new ArrayList<>();
+    List<Integer> listOfConsecutiveNumbers = new ArrayList<>();
+    List<Integer> listOfRandomizedNumbers;
 
     public void setConsecutiveNumbers() {
         for (int i = 1; i < 100; i++) {
-            consecutiveNumbers.add(i);
+            listOfConsecutiveNumbers.add(i);
         }
     }
     public void randomizeNumbers(){
-        Collections.shuffle(consecutiveNumbers);
+        Collections.shuffle(listOfConsecutiveNumbers);
+        listOfRandomizedNumbers = listOfConsecutiveNumbers.subList(0,6);
     }
-    List<Integer> listOfRandomizedNumbers = new ArrayList<>(consecutiveNumbers);
+
 }

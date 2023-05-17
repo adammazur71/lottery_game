@@ -7,7 +7,7 @@ public class Results {
     Drawing drawing = new Drawing();
 
     public int checkResult() {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < drawing.listOfRandomizedNumbers.size(); i++) {
             for (int j = 0; j < numbersFromUser.listOfNumbersFromUser.size(); j++) {
                 if (drawing.listOfRandomizedNumbers.get(i).equals(numbersFromUser.listOfNumbersFromUser.get(j))) {
                     result++;

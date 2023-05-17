@@ -5,6 +5,7 @@ import java.util.*;
 public class NumbersFromUser {
 
     Set<Integer> setOfNumbersFromUser = new TreeSet<>();
+    List<Integer> listOfNumbersFromUser;
     int numberFromUser;
 
     public void getNumbersFromUser() {
@@ -38,9 +39,9 @@ public class NumbersFromUser {
             }
         }
         scanner.close();
+        listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
 
     }
-    List<Integer> listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
 
 }
 
