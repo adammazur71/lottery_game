@@ -9,13 +9,15 @@ public class Drawing {
     List<Integer> listOfRandomizedNumbers;
 
     public void setConsecutiveNumbers() {
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i < 50; i++) {
             listOfConsecutiveNumbers.add(i);
         }
     }
     public void randomizeNumbers(){
+        System.out.println("Drawing....");
         Collections.shuffle(listOfConsecutiveNumbers);
         listOfRandomizedNumbers = listOfConsecutiveNumbers.subList(0,6);
+        System.out.println("The drawn numbers are: "+listOfRandomizedNumbers);
     }
 
 }

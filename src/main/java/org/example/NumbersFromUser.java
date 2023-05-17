@@ -13,7 +13,7 @@ public class NumbersFromUser {
         for (int i = 0; i < 6; i++) {
 
             try {
-                System.out.println("Write a number bigger than 0 and smaller than 100. Number " + (i + 1) + " of 6 is: ");
+                System.out.println("Write a number bigger than 0 and smaller than 50. Number " + (i + 1) + " of 6 is: ");
                 numberFromUser = scanner.nextInt();
 
             } catch (InputMismatchException exception) {
@@ -23,7 +23,7 @@ public class NumbersFromUser {
                 continue;
             }
 
-            if (numberFromUser <= 0 || numberFromUser >= 100) {
+            if (numberFromUser <= 0 || numberFromUser >= 50) {
                 System.out.println("Given number is out of scope! Try again!");
                 i--;
                 continue;
@@ -40,6 +40,7 @@ public class NumbersFromUser {
         }
         scanner.close();
         listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
+        System.out.println("Your numbers are: "+listOfNumbersFromUser);
 
     }
 

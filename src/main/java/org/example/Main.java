@@ -5,26 +5,23 @@ public class Main {
     public static void main(String[] args) {
         
         NumbersFromUser numbersFromUser = new NumbersFromUser();
+        Drawing drawing = new Drawing();
+
+
         numbersFromUser.getNumbersFromUser();
+        drawing.setConsecutiveNumbers();
+        drawing.randomizeNumbers();
+
+        Results results = new Results(drawing.listOfRandomizedNumbers,numbersFromUser.listOfNumbersFromUser);
+        results.checkResult();
+        results.checkPrize();
 
 
-        for (int number :
-                numbersFromUser.listOfNumbersFromUser) {
-            System.out.println(number);
-        }
 
 
 
-//        Drawing drawing = new Drawing();
-//        drawing.setConsecutiveNumbers();
-//        drawing.randomizeNumbers();
-//
-//
-//        for (int number :
-//                drawing.listOfRandomizedNumbers) {
-//            System.out.println(number);
-//
-//        }
+
+
     }
 }
 
