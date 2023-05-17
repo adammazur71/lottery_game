@@ -38,7 +38,7 @@ public class NumbersFromUser {
                 i--;
             }
         }
-        scanner.close();
+//        scanner.close();
         listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
         System.out.println("Your numbers are: " + listOfNumbersFromUser);
 

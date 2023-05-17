@@ -1,7 +1,7 @@
 package org.example;
 
 public class Lotto6from49 extends Game {
-    public static void playLotto6from49(){
+    public void playGame(){
         NumbersFromUser numbersFromUser = new NumbersFromUser();
         Drawing drawing = new Drawing();
 
