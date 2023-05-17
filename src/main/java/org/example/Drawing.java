@@ -13,11 +13,14 @@ public class Drawing {
             listOfConsecutiveNumbers.add(i);
         }
     }
-    public void randomizeNumbers(){
+
+    public void randomizeNumbers() {
         System.out.println("Drawing....");
         Collections.shuffle(listOfConsecutiveNumbers);
-        listOfRandomizedNumbers = listOfConsecutiveNumbers.subList(0,6);
-        System.out.println("The drawn numbers are: "+listOfRandomizedNumbers);
+        listOfRandomizedNumbers = listOfConsecutiveNumbers.subList(0, 6);
+        Collections.sort(listOfRandomizedNumbers);
+        System.out.println("The drawn numbers are: " + listOfRandomizedNumbers);
+
     }
 
 }

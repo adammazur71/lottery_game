@@ -3,7 +3,7 @@ package org.example;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         NumbersFromUser numbersFromUser = new NumbersFromUser();
         Drawing drawing = new Drawing();
 
@@ -12,14 +12,9 @@ public class Main {
         drawing.setConsecutiveNumbers();
         drawing.randomizeNumbers();
 
-        Results results = new Results(drawing.listOfRandomizedNumbers,numbersFromUser.listOfNumbersFromUser);
+        Results results = new Results(drawing.listOfRandomizedNumbers, numbersFromUser.listOfNumbersFromUser);
         results.checkResult();
         results.checkPrize();
-
-
-
-
-
 
 
     }

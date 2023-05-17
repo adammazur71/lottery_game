@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Results {
@@ -9,9 +8,9 @@ public class Results {
     public List<Integer> listOfRandomizedNumbers;
     public List<Integer> listOfNumbersFromUser;
 
-    Results(List<Integer>listOfRandomizedNumbers, List<Integer>listOfNumbersFromUser) {
-        this.listOfRandomizedNumbers=listOfRandomizedNumbers;
-        this.listOfNumbersFromUser=listOfNumbersFromUser;
+    Results(List<Integer> listOfRandomizedNumbers, List<Integer> listOfNumbersFromUser) {
+        this.listOfRandomizedNumbers = listOfRandomizedNumbers;
+        this.listOfNumbersFromUser = listOfNumbersFromUser;
     }
 
     public void checkResult() {

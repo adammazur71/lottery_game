@@ -40,7 +40,7 @@ public class NumbersFromUser {
         }
         scanner.close();
         listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
-        System.out.println("Your numbers are: "+listOfNumbersFromUser);
+        System.out.println("Your numbers are: " + listOfNumbersFromUser);
 
     }
 
