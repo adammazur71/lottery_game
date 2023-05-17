@@ -14,7 +14,6 @@ public class Drawing {
     }
     public void randomizeNumbers(){
         Collections.shuffle(consecutiveNumbers);
-        List<Integer> listOfRandomizedNumbers = new ArrayList<>(consecutiveNumbers);
-
     }
+    List<Integer> listOfRandomizedNumbers = new ArrayList<>(consecutiveNumbers);
 }

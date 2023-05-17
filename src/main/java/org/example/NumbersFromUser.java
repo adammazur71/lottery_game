@@ -38,9 +38,9 @@ public class NumbersFromUser {
             }
         }
         scanner.close();
-        List<Integer> listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
-    }
 
+    }
+    List<Integer> listOfNumbersFromUser = new ArrayList<>(setOfNumbersFromUser);
 
 }
 
