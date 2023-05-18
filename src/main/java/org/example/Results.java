@@ -23,29 +23,24 @@ public class Results {
         }
     }
 
-    public void checkPrize() {
+    public String checkPrize() {
         switch (result) {
             case 0:
-                System.out.println("You didn't guess any number, sorry no win...");
-                break;
+                return "You didn't guess any number, sorry no win...";
             case 1:
-                System.out.println("You guessed only 1 number out of 6, sorry no win...");
-                break;
+                return "You guessed only 1 number out of 6, sorry no win...";
             case 2:
-                System.out.println("You guessed only 2 numbers out of 6, sorry no win...");
-                break;
+                return "You guessed only 2 numbers out of 6, sorry no win...";
             case 3:
-                System.out.println("You guessed 3 numbers out of 6, you won :-)");
-                break;
+                return "You guessed 3 numbers out of 6, you won :-)";
             case 4:
-                System.out.println("You guessed 4 numbers out of 6, you won :-) :-)");
-                break;
+                return "You guessed 4 numbers out of 6, you won :-) :-)";
             case 5:
-                System.out.println("You guessed 5 numbers out of 6, you won :-) :-) :-)");
-                break;
+                return "You guessed 5 numbers out of 6, you won :-) :-) :-)";
             case 6:
-                System.out.println("You guessed 6 numbers out of 6, you won :-) :-D :-D :-)");
-                break;
+                return "You guessed 6 numbers out of 6, you won :-) :-D :-D :-)";
+            default:
+                throw new IllegalStateException("no option found");
         }
     }
 }

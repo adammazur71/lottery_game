@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Starter {
     Scanner scanner = new Scanner(System.in);
     int choiceGame = -1;
+    Choice choiceGameEnum;
 
     public void starter() {
         do {
@@ -14,27 +15,30 @@ public class Starter {
                     "0. QUIT");
             try {
                 choiceGame = scanner.nextInt();
+                if(choiceGame == 1){
+                    choiceGameEnum = Choice.LOTTO;
+                } else {
+                    choiceGameEnum = Choice.EXIT;
+                }
             } catch (InputMismatchException exception) {
                 System.out.println("Sorry, but only integers are allowed here! Try again!");
                 scanner.nextLine();
-
             }
         } while (choiceGame == -1);
 
 
-        switch (choiceGame) {
-            case 0:
+        switch (choiceGameEnum) {
+            case EXIT:
                 System.out.println("Good Bye!");
-                System.exit(0);
-                break;
-            case 1:
+                return;
+            case LOTTO:
                 System.out.println("Welcome to 'Lotto 6 from 49'");
-                Lotto6from49 lotto6from49 = new Lotto6from49();
-                lotto6from49.playGame();
+                LottoGame lotto = new LottoGame();
+                GameResult gameResult = lotto.playGame();
+                System.out.println(gameResult.getMessage());
                 break;
-            default:
-                System.out.println("There is no game at this number.. Try again!");
-                starter();
+            case OTHER_GAME:
+                System.out.println("other game'");
                 break;
         }
 
