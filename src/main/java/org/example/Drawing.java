@@ -2,24 +2,29 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Drawing {
-    List<Integer> listOfConsecutiveNumbers = new ArrayList<>();
-    List<Integer> listOfRandomizedNumbers;
+   // List<Integer> listOfConsecutiveNumbers; //= new ArrayList<>();
+    //List<Integer> listOfRandomizedNumbers;
 
-    public void setConsecutiveNumbers() {
+    public List<Integer> setListOfConsecutiveNumbers() {
+        List<Integer> listOfConsecutiveNumbers = new ArrayList<>();
         for (int i = 1; i < 50; i++) {
             listOfConsecutiveNumbers.add(i);
         }
+        return listOfConsecutiveNumbers;
     }
 
-    public void randomizeNumbers() {
+    public List<Integer> randomizeNumbers(List<Integer> listOfConsecutiveNumbers) {
         System.out.println("Drawing....");
         Collections.shuffle(listOfConsecutiveNumbers);
-        listOfRandomizedNumbers = listOfConsecutiveNumbers.subList(0, 6);
+        List<Integer> listOfRandomizedNumbers = listOfConsecutiveNumbers.subList(0, 6);
         Collections.sort(listOfRandomizedNumbers);
         System.out.println("The drawn numbers are: " + listOfRandomizedNumbers);
+        return listOfRandomizedNumbers;
+
 
     }
 

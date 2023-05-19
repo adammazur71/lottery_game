@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LottoGame implements Playable {
@@ -10,9 +11,9 @@ public class LottoGame implements Playable {
     public GameResult playGame() {
         List<Integer> numbersFromUser = numbersRetriever.retrieve();
         Drawing drawing = new Drawing();
-        drawing.setConsecutiveNumbers();
-        drawing.randomizeNumbers();
-        Results results = new Results(drawing.listOfRandomizedNumbers, numbersFromUser);
+        List<Integer> listOfConsecutiveNumbers = drawing.setListOfConsecutiveNumbers();
+        List<Integer> listOfRandomizedNumbers = drawing.randomizeNumbers(listOfConsecutiveNumbers);
+        Results results = new Results(listOfRandomizedNumbers, numbersFromUser);
         results.checkResult();
         String message = results.checkPrize();
         return new GameResult(message);
