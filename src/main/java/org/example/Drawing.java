@@ -2,21 +2,16 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Drawing {
-   // List<Integer> listOfConsecutiveNumbers; //= new ArrayList<>();
-    //List<Integer> listOfRandomizedNumbers;
-
-    public List<Integer> setListOfConsecutiveNumbers() {
+    public List<Integer> makeListOfConsecutiveNumbers() {
         List<Integer> listOfConsecutiveNumbers = new ArrayList<>();
         for (int i = 1; i < 50; i++) {
             listOfConsecutiveNumbers.add(i);
         }
         return listOfConsecutiveNumbers;
     }
-
     public List<Integer> randomizeNumbers(List<Integer> listOfConsecutiveNumbers) {
         System.out.println("Drawing....");
         Collections.shuffle(listOfConsecutiveNumbers);

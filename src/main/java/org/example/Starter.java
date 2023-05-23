@@ -1,14 +1,16 @@
 package org.example;
 
 import enums.Choice;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Starter {
     Scanner scanner = new Scanner(System.in);
-    int choiceGame = -1;
-    Choice choiceGameEnum;
-    public void starter() {
+    private int choiceGame = -1;
+    private Choice choiceGameEnum;
+
+    public String starter() {
         do {
             System.out.println("Choose your game. Write according number: \n" + "1. Lotto 6 from 49 \n" + "0. QUIT");
             try {
@@ -26,17 +28,17 @@ public class Starter {
         } while (choiceGame == -1);
         switch (choiceGameEnum) {
             case EXIT:
-                System.out.println("Good Bye!");
-                return;
+                return "Good Bye!";
             case LOTTO:
                 System.out.println("Welcome to 'Lotto 6 from 49'");
                 LottoGame lotto = new LottoGame();
                 GameResult gameResult = lotto.playGame();
-                System.out.println(gameResult.getMessage());
-                break;
+                return gameResult.getMessage();
             case OTHER_GAME:
-                System.out.println("other game");
-                break;
+                return "other game";
+            default:
+                throw new IllegalStateException("wrong");
         }
+//        return resultMessage;
     }
 }
