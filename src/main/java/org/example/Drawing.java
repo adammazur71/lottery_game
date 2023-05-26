@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class Drawing {
+    public static final int MIN_NUMBER = 1;
+    public static final int MAX_NUMBER = 49;
     public List<Integer> makeListOfConsecutiveNumbers() {
         List<Integer> listOfConsecutiveNumbers = new ArrayList<>();
-        for (int i = 1; i < 50; i++) {
+        for (int i = MIN_NUMBER; i <= MAX_NUMBER; i++) {
             listOfConsecutiveNumbers.add(i);
         }
         return listOfConsecutiveNumbers;

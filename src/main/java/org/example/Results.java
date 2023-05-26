@@ -25,15 +25,15 @@ public class Results {
             }
         }
         if (result <= 2) {
-            resultOptionEnum = ResultOptions.NOTHING;
+            resultOptionEnum = ResultOptions.NO_WIN;
         } else if (result == 3) {
-            resultOptionEnum = ResultOptions.THREE;
+            resultOptionEnum = ResultOptions.THREE_HITS;
         } else if (result == 4) {
-            resultOptionEnum = ResultOptions.FOUR;
+            resultOptionEnum = ResultOptions.FOUR_HITS;
         } else if (result == 5) {
-            resultOptionEnum = ResultOptions.FIVE;
+            resultOptionEnum = ResultOptions.FIVE_HITS;
         } else if (result == 6) {
-            resultOptionEnum = ResultOptions.SIX;
+            resultOptionEnum = ResultOptions.SIX_HITS;
         }
         return resultOptionEnum;
     }
@@ -41,16 +41,16 @@ public class Results {
 
     public String checkPrize(ResultOptions resultOptionEnum) {
         switch (resultOptionEnum) {
-            case NOTHING:
-                return "You didn't guess any number, sorry no win...";
-            case THREE:
-                return "You guessed 3 numbers out of 6, you won :-)";
-            case FOUR:
-                return "You guessed 4 numbers out of 6, you won :-) :-)";
-            case FIVE:
-                return "You guessed 5 numbers out of 6, you won :-) :-) :-)";
-            case SIX:
-                return "You guessed 6 numbers out of 6, you won :-) :-D :-D :-)";
+            case NO_WIN:
+                return ResultOptions.NO_WIN.getMessage();
+            case THREE_HITS:
+                return ResultOptions.THREE_HITS.getMessage();
+            case FOUR_HITS:
+                return ResultOptions.FOUR_HITS.getMessage();
+            case FIVE_HITS:
+                return ResultOptions.FIVE_HITS.getMessage();
+            case SIX_HITS:
+                return ResultOptions.SIX_HITS.getMessage();
             default:
                 throw new IllegalStateException("no option found");
         }

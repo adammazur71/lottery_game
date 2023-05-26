@@ -37,8 +37,7 @@ public class Starter {
             case OTHER_GAME:
                 return "other game";
             default:
-                throw new IllegalStateException("wrong");
+                throw new IllegalStateException("something went wrong");
         }
-//        return resultMessage;
     }
 }
