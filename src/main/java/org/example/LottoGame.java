@@ -1,8 +1,10 @@
 package org.example;
 
-import enums.ResultOptions;
+import enums.GameResultOptions;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class LottoGame implements Playable {
 
@@ -12,12 +14,13 @@ public class LottoGame implements Playable {
 
     @Override
     public GameResult playGame() {
-        List<Integer> numbersFromUser = numbersRetriever.retrieve();
+        Set<Integer> numbersFromUser = numbersRetriever.retrieve();
+        List<Integer> validatedNumbersFromUser = new ArrayList<>(numbersFromUser);
         Drawing drawing = new Drawing();
         List<Integer> listOfConsecutiveNumbers = drawing.makeListOfConsecutiveNumbers();
         List<Integer> listOfRandomizedNumbers = drawing.randomizeNumbers(listOfConsecutiveNumbers);
-        Results results = new Results(listOfRandomizedNumbers, numbersFromUser);
-        ResultOptions resultOptionEnum = results.checkResult();
+        Results results = new Results(listOfRandomizedNumbers, validatedNumbersFromUser);
+        GameResultOptions resultOptionEnum = results.checkResult();
         String message = results.checkPrize(resultOptionEnum);
         return new GameResult(message);
     }
