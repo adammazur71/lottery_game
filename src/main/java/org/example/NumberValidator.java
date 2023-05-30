@@ -4,9 +4,8 @@ import enums.ValidationResultOptions;
 
 
 public class NumberValidator {
-    private int numberFromUser;
 
-    boolean checkNumberRange(int numberFromUser) {
+    private boolean checkIfNumberInRange(int numberFromUser) {
         if (numberFromUser < Drawing.MIN_NUMBER || numberFromUser > Drawing.MAX_NUMBER) {
             System.out.println(ValidationResultOptions.NUMBER_OUT_OF_RANGE.getValidationMsg());
             return false;
@@ -15,9 +14,9 @@ public class NumberValidator {
         }
     }
 
-    boolean checkIfInteger(String givenByUser) {
+    private boolean checkIfInteger(String givenByUser) {
         try {
-            numberFromUser = Integer.parseInt(givenByUser);
+            returnNumberFromGivenByUser(givenByUser);
             return true;
         } catch (NumberFormatException exception) {
             System.out.println(ValidationResultOptions.NOT_AN_INTEGER.getValidationMsg());
@@ -25,10 +24,19 @@ public class NumberValidator {
         }
     }
 
-    int validateNumber(String givenByUser) {
-        int validatedNumberFromUser;
-        if (checkIfInteger(givenByUser) && checkNumberRange(numberFromUser)) {
-            validatedNumberFromUser = numberFromUser;
+    private int returnNumberFromGivenByUser(String givenByUser) {
+        return Integer.parseInt(givenByUser);
+    }
+
+    int returnValidatedNumber(String givenByUser) {
+        int numberFromUser;
+        if (checkIfInteger(givenByUser)) {
+            numberFromUser = returnNumberFromGivenByUser(givenByUser);
+        } else {
+            return 0;
+        }
+        if (checkIfNumberInRange(numberFromUser)) {
+            int validatedNumberFromUser = numberFromUser;
             System.out.println(ValidationResultOptions.NUMBER_OK.getValidationMsg());
             return validatedNumberFromUser;
         } else {

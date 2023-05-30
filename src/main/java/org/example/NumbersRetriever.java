@@ -15,7 +15,7 @@ public class NumbersRetriever {
         do {
             System.out.println("Write a number bigger than 0 and smaller than 50. Number " + (setOfNumbersFromUser.size() + 1) + " of 6 is: ");
             String givenByUser = scanner.nextLine();
-            int validatedNumberFromUser = numberValidator.validateNumber(givenByUser);
+            int validatedNumberFromUser = numberValidator.returnValidatedNumber(givenByUser);
             if (validatedNumberFromUser != 0) {
                 setOfNumbersFromUser.add(validatedNumberFromUser);
             }
