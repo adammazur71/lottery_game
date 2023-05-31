@@ -5,6 +5,27 @@ import enums.ValidationResultOptions;
 
 public class NumberValidator {
 
+    private final int validatedNumber;
+
+    NumberValidator(String givenByUser) {
+        this.validatedNumber =returnValidatedNumber(givenByUser);
+    }
+    private int returnValidatedNumber(String givenByUser) {
+        int numberFromUser;
+        if (checkIfInteger(givenByUser)) {
+            numberFromUser = returnNumberFromGivenByUser(givenByUser);
+        } else {
+            return 0;
+        }
+        if (checkIfNumberInRange(numberFromUser)) {
+            int validatedNumberFromUser = numberFromUser;
+            System.out.println(ValidationResultOptions.NUMBER_OK.getValidationMsg());
+            return validatedNumberFromUser;
+        } else {
+            return 0;
+        }
+    }
+
     private boolean checkIfNumberInRange(int numberFromUser) {
         if (numberFromUser < Drawing.MIN_NUMBER || numberFromUser > Drawing.MAX_NUMBER) {
             System.out.println(ValidationResultOptions.NUMBER_OUT_OF_RANGE.getValidationMsg());
@@ -28,19 +49,7 @@ public class NumberValidator {
         return Integer.parseInt(givenByUser);
     }
 
-    int returnValidatedNumber(String givenByUser) {
-        int numberFromUser;
-        if (checkIfInteger(givenByUser)) {
-            numberFromUser = returnNumberFromGivenByUser(givenByUser);
-        } else {
-            return 0;
-        }
-        if (checkIfNumberInRange(numberFromUser)) {
-            int validatedNumberFromUser = numberFromUser;
-            System.out.println(ValidationResultOptions.NUMBER_OK.getValidationMsg());
-            return validatedNumberFromUser;
-        } else {
-            return 0;
-        }
+    public int getValidatedNumber() {
+        return validatedNumber;
     }
 }

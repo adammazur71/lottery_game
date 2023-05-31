@@ -11,11 +11,10 @@ public class NumbersRetriever {
 
         Set<Integer> setOfNumbersFromUser = new TreeSet<>();
         Scanner scanner = new Scanner(System.in);
-        NumberValidator numberValidator = new NumberValidator();
         do {
             System.out.println("Write a number bigger than 0 and smaller than 50. Number " + (setOfNumbersFromUser.size() + 1) + " of 6 is: ");
             String givenByUser = scanner.nextLine();
-            int validatedNumberFromUser = numberValidator.returnValidatedNumber(givenByUser);
+            int validatedNumberFromUser = (new NumberValidator(givenByUser)).getValidatedNumber();
             if (validatedNumberFromUser != 0) {
                 setOfNumbersFromUser.add(validatedNumberFromUser);
             }
