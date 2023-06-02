@@ -7,21 +7,23 @@ import java.util.TreeSet;
 public class NumbersRetriever {
     public static final int AMOUNT_OF_NUMBERS_FROM_USER = 6;
 
-    Set<Integer> retrieve() {
+    private final NumberValidator numberValidator = new NumberValidator();
 
-        Set<Integer> setOfNumbersFromUser = new TreeSet<>();
+    Set<Integer> retrieve() {
+        Set<Integer> numbersFromUser = new TreeSet<>();
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("Write a number bigger than 0 and smaller than 50. Number " + (setOfNumbersFromUser.size() + 1) + " of 6 is: ");
+            System.out.println("Write a number bigger than 0 and smaller than 50. Number " + (numbersFromUser.size() + 1) + " of 6 is: ");
             String givenByUser = scanner.nextLine();
-            int validatedNumberFromUser = (new NumberValidator(givenByUser)).getValidatedNumber();
-            if (validatedNumberFromUser != 0) {
-                setOfNumbersFromUser.add(validatedNumberFromUser);
+            ValidationResult validate = numberValidator.validate(givenByUser);
+            if(!validate.getValidationError().isError()){
+                numbersFromUser.add(validate.getNumber());
             }
-        } while (setOfNumbersFromUser.size() != AMOUNT_OF_NUMBERS_FROM_USER);
-        System.out.println("Given numbers are: " + setOfNumbersFromUser);
-        return setOfNumbersFromUser;
+        } while (numbersFromUser.size() != AMOUNT_OF_NUMBERS_FROM_USER);
+        System.out.println("Given numbers are: " + numbersFromUser);
+        return numbersFromUser;
     }
+
 }
 
 

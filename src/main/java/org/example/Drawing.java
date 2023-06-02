@@ -7,6 +7,7 @@ import java.util.List;
 public class Drawing {
     public static final int MIN_NUMBER = 1;
     public static final int MAX_NUMBER = 49;
+
     public List<Integer> makeListOfConsecutiveNumbers() {
         List<Integer> listOfConsecutiveNumbers = new ArrayList<>();
         for (int i = MIN_NUMBER; i <= MAX_NUMBER; i++) {
@@ -14,6 +15,7 @@ public class Drawing {
         }
         return listOfConsecutiveNumbers;
     }
+
     public List<Integer> randomizeNumbers(List<Integer> listOfConsecutiveNumbers) {
         System.out.println("Drawing....");
         Collections.shuffle(listOfConsecutiveNumbers);
@@ -21,8 +23,6 @@ public class Drawing {
         Collections.sort(listOfRandomizedNumbers);
         System.out.println("The drawn numbers are: " + listOfRandomizedNumbers);
         return listOfRandomizedNumbers;
-
-
     }
 
 }

@@ -9,14 +9,12 @@ import java.util.Set;
 public class LottoGame implements Playable {
 
     final NumbersRetriever numbersRetriever = new NumbersRetriever();
-
-
+    final Drawing drawing = new Drawing();
 
     @Override
     public GameResult playGame() {
         Set<Integer> numbersFromUser = numbersRetriever.retrieve();
         List<Integer> validatedNumbersFromUser = new ArrayList<>(numbersFromUser);
-        Drawing drawing = new Drawing();
         List<Integer> listOfConsecutiveNumbers = drawing.makeListOfConsecutiveNumbers();
         List<Integer> listOfRandomizedNumbers = drawing.randomizeNumbers(listOfConsecutiveNumbers);
         Results results = new Results(listOfRandomizedNumbers, validatedNumbersFromUser);

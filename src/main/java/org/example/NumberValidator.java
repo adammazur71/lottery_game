@@ -1,55 +1,38 @@
 package org.example;
 
-import enums.ValidationResultOptions;
+import enums.ValidationError;
+import java.util.List;
 
 
 public class NumberValidator {
 
-    private final int validatedNumber;
+    private final List<ValidationError> validationResults = List.of();
 
-    NumberValidator(String givenByUser) {
-        this.validatedNumber =returnValidatedNumber(givenByUser);
-    }
-    private int returnValidatedNumber(String givenByUser) {
-        int numberFromUser;
-        if (checkIfInteger(givenByUser)) {
-            numberFromUser = returnNumberFromGivenByUser(givenByUser);
-        } else {
-            return 0;
-        }
-        if (checkIfNumberInRange(numberFromUser)) {
-            int validatedNumberFromUser = numberFromUser;
-            System.out.println(ValidationResultOptions.NUMBER_OK.getValidationMsg());
-            return validatedNumberFromUser;
-        } else {
-            return 0;
-        }
+    NumberValidator() {
     }
 
-    private boolean checkIfNumberInRange(int numberFromUser) {
+    ValidationResult validate(String givenByUser) {
+        ValidationResult validationResult = checkIfNumber(givenByUser);
+        if (!validationResult.getValidationError().isError()) {
+            return checkIfNumberInRange(validationResult.getNumber());
+        }
+        return validationResult;
+    }
+
+    private ValidationResult checkIfNumberInRange(int numberFromUser) {
         if (numberFromUser < Drawing.MIN_NUMBER || numberFromUser > Drawing.MAX_NUMBER) {
-            System.out.println(ValidationResultOptions.NUMBER_OUT_OF_RANGE.getValidationMsg());
-            return false;
-        } else {
-            return true;
+            return new ValidationResult(ValidationError.NUMBER_OUT_OF_RANGE);
         }
+        return new ValidationResult(ValidationError.NUMBER_OK, numberFromUser);
     }
 
-    private boolean checkIfInteger(String givenByUser) {
+    private ValidationResult checkIfNumber(String givenByUser) {
         try {
-            returnNumberFromGivenByUser(givenByUser);
-            return true;
+            int parsedNumber = Integer.parseInt(givenByUser);
+            return new ValidationResult(ValidationError.NUMBER_OK, parsedNumber);
         } catch (NumberFormatException exception) {
-            System.out.println(ValidationResultOptions.NOT_AN_INTEGER.getValidationMsg());
-            return false;
+            return new ValidationResult(ValidationError.NOT_AN_INTEGER);
         }
     }
 
-    private int returnNumberFromGivenByUser(String givenByUser) {
-        return Integer.parseInt(givenByUser);
-    }
-
-    public int getValidatedNumber() {
-        return validatedNumber;
-    }
 }
